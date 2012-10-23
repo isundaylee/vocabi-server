@@ -30,6 +30,7 @@ function validatePasscode($passcode) {
 
 $passcode = $_POST['passcode']; 
 $content = $_POST['content']; 
+$entity = $_POST['entity']; 
 
 if (trim($passcode) == '') $passcode = getRandomString(8); 
 
@@ -38,7 +39,7 @@ if (!validatePasscode($passcode)) {
 	exit(); 
 }
 
-$f = fopen('notesync/' . $passcode, 'w'); 
+$f = fopen('notesync/' . $passcode . '_' . $entity, 'w'); 
 
 if (!$f) {
 	echo json_encode(array('passcode' => $passcode, 'result' => FALSE, 'error' => 'Server side error. Please contact application developer. ')); 

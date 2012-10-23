@@ -15,13 +15,14 @@ function validatePasscode($passcode) {
 }
 	
 $passcode = $_POST['passcode'];
+$entity = $_POST['entity']; 
 
 if (!validatePasscode($passcode)) {
 	echo json_encode(array('passcode' => $passcode, 'result' => FALSE, 'error' => 'Invalid passcode. ')); 
 	exit(); 
 }
 
-$path = 'notesync/' . $passcode; 
+$path = 'notesync/' . $passcode . '_' . $entity; 
 
 if (!file_exists($path)) {
 	echo json_encode(array('passcode' => $passcode, 'result' => FALSE, 'error' => 'No synced notebook associated with the given passcode. ')); 
