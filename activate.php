@@ -1,5 +1,9 @@
 <?php
 
+header('Content-type: text/json; '); 
+
+ini_set('display_errors', '0');
+
 $key = $_POST['key']; 
 
 if (file_exists('keys/' . $key)) {
