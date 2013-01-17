@@ -10,7 +10,7 @@ wordlists = []
     open("wordlists/" + wlid.to_s + ".vdm", "r") { |f|
         data = f.read()
         result = JSON.parse(data)
-        wordlists += [{"title" => "SAT List " + wlid.to_s, "words" => result}]; 
+        wordlists += [{"title" => wlid.to_s, "words" => result}]; 
         total += result.size
     }
 }
